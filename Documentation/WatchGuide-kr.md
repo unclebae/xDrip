@@ -52,30 +52,39 @@ wear 스탠드 얼론 기능은 **Smart Watch Features** 기능 하위에 위치
 
 이 설정들은 의존성의 순서대로 리스트 된다. 중요, Watch의 **XDrip BT Settings** 는 오직 폰에서 Wear Integration 이 활성화 된경우에만 보입니다.
 
-* **Enable Wear**
+* **Wear 활성화하기**
 
-  If you ONLY want to use the watch in standalone mode when the phone is out-of-range, then just select the Enable Wear checkbox. This simply enables the BT collection service on the watch to run only when the phone is out-of-range. Upon reconnecting to the phone, the watch will stop its BT collection service and send its BG readings. The phone will sync the received readings and startup its own BT collection service. There may be a delay, perhaps up to 14 minutes, on some smartphones (eg., if the smartphone has poor BT connectivity) to get an initial bg reading after it is switched back to the phone.
-* **Force Wear**
+  만약 폰이 범위 밖을 벗어났을때 오직 watch 만을 스탠드 얼론 모드로 이용하고자 한다면, 그리고 단지 Enable Wear checkbox 를 선택한다.
+  이것은 단순히 폰이 범위 밖을 벗어났을때 BT collection 서비스를 가능하게 워치에서 수행한다.
+  만약 폰이 다시 연결이 되는경우 워치는 BT 컬렉션 서비스를 정지할 것이다. 그리고 읽고 있는 BT 정볼르 전송한다.
+  폰은 수신된 읽기 정보를 동기화 할 것이다. 그리고 자신의 BT 컬렉션 서비스를 시작한다. 이때 딜레이가 있을 것이다.
+  약 14분 정도 소요될 수 있다. 몇몇 스마트폰에서 폰으로 스위치 되는 경우 초기 bg 읽기 정보를 획득한다. (스마트폰은 좋지 않은 연결 설정을 가진다.)
 
-  Enabling **Force Wear** will cause xDrip+ to use the watch BT collection service.  The watch BT collection service will sync each bg reading with the phone as readings are received from the collector, or upon reconnecting to the phone.  **Force Wear** for everyday use has the advantage of offloading some of the proccessing required on the smartphone to the watch, thus saving battery and CPU usage on the smartphone.
+* **Wear 강제로 이용하기**
 
-  However, this offloading means the watch battery may not last as long as when not using Force Wear.  As an example, some users find that the Sony Smartwatch 3 (SW3) can use 20%+ overnight (7-8 hrs) when unplugged and running G5 collector and always-on screen.
+  **Force Wear** 를 활성화 하는 것은 xDrip+ BT 컬렉션 서비스를 수행하기 위해서 워치를 이용하게 한다.
+  워치 BT 컬렉션 서비스는 매번 bg 읽기 값을 폰과 동기화 한다 컬렉터로 부터 수신된 읽은 정보 혹은 폰과 재연결된 정보를 읽는다.
+  **Force Wear** 는 일상적으로 사용을 위해서 스마트폰에서 요청된 처리를 시계에 맡기는 이점이 있다. 그러므로 스마트폰의 배터리를 절약하고 CPU 사용량을 절약 할 수 있다.
+  그러나, 이 오프로딩의 의미는 시계 배터리가 Force Wear 사용하지 않을때까지 지속되지 않을 수 있다는 것이다.
+  예제와 같이 몇몇 사용자는 소니 스마트워치 3 (SW3) 가 플러그가 뽑히지 않고 G5 컬렉터가 수행되고있고, 항상 스크린에 떠 있을때 20% 오버나이트 (7-8시간) 이용할 수 있다.
 
-  Force Wear may also provide better BT connectivity over that provided by the smartphone.  As an example, some users find that the SW3 provides better BT connectivity than their Samsung Galaxy Note 4 smartphone.
+  Force Wear 는 또한 더 낳은 BT 연결성을 제공한다. 이는 스마트폰에서 제공된 것이다. 예제에서와 같이 몇몇 사용자는 발견한다. SW3가 삼성 갤럭시 노트 4 스마트폰보다 더 낳은 연결성을 갖는다.
 
-### Patching Watch Firmware
+### FirmwareWatch 패치하기
 
-Out of the box, only the Sony SW3 works as a collector with the G5 Transmitter. Most other smart-watches have a bug which prevents their bluetooth working correctly. This bug can be fixed and there are patches available for a number of watch models. See this page for details: https://github.com/NightscoutFoundation/xDrip/wiki/Patching-Android-Wear-devices-for-use-with-the-G5
+  오직 Sony SW3 만이 G5 트랜스미트와 같이 컬렉터로 동작한다.
+  대부분 다른 스마트 워치들은 버그를 가지고 있으며 이것은 그들의 불루투스가 올바르게 동작하는 것을 방해한다.
+  이 버그는 워치 모델들이 나오고 나면 패치 되고 수정될 수 있다.
+  자세한 내용은 https://github.com/NightscoutFoundation/xDrip/wiki/Patching-Android-Wear-devices-for-use-with-the-G5 을 살펴보자.
 
-### Collector
+### 컬렉터
+    **BT 컬렉터** 는 워치의 XDrip Pref 에서 읽기 전용으로 설정되어 있다. 이것은 xDrip+ Setting -> **Hardware Data Source** 에따라 동작한다.
 
-The **BT Collector** is a read-only preference on the watch XDrip Prefs.  It corresponds to xDrip+ Setting -> **Hardware Data Source**.
-
-The following images show the setting of **Hardware Data Source** to **LimiTTer** and its corresponding setting on the watch.
+    다음 이미지는 **Hardware Data Source** 의 설정을 보여준다. 이는 **LimiTTer** 그리고 워치에 설정된 설정에 따라 동작한다.
 
 <img align="middle" src="./images/prefs-hardware-data-source-phone.png" title="xDrip+ Hardware Data Source">
 
-This preference indicates which BT Collector the watch will run to communicate with the BG transmitter when watch is in standalone mode.
+    프리퍼런스는 BT Collector 를 가리킨다. 워치는 BG 트랜스미터와 커뮤니케이션 하며 동작할 것이며 워치는 스탠드 얼론 모드로 동작한다.
 
 #### xDrip+ System Status
 The xDrip+ System Status screen supports individual status pages for the BT Collector.  This enables users to easily identify which device is running the BT Collector.
