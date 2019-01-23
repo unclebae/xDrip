@@ -87,27 +87,31 @@ wear 스탠드 얼론 기능은 **Smart Watch Features** 기능 하위에 위치
     프리퍼런스는 BT Collector 를 가리킨다. 워치는 BG 트랜스미터와 커뮤니케이션 하며 동작할 것이며 워치는 스탠드 얼론 모드로 동작한다.
 
 #### xDrip+ System Status
-The xDrip+ System Status screen supports individual status pages for the BT Collector.  This enables users to easily identify which device is running the BT Collector.
+xDrip+ 시스템 상태 스크린은 BT 컬렉터를 위한 각각의 상태 페이지를 제공한다.
+이것은 사용자가 쉽게 디바이스에서 BT 컬렉터가 수행되고 있는것을 쉽게 식별하게 해준다.
 
-The following images show the System Status pages including one for the G5 Collector.
+다음 이미지는 시스템 상태 페이지를 보여주며 G5 컬렉터도 포함하고 있다.
 
 <img align="middle" src="./images/prefs-wear-g5systemstatus.png" title="xDrip+ System Status">
 
 
-### Initial Wear Enablement Requests Location Permission
-Initial enablement of standalone wear is triggered by selecting the the Enable Wear preference on watch or phone.
+### Wear가 위치 퍼미션 요청을 가능하게 하기 위한 초기화
+스탠드얼론 웨어의의 초기 enablement Enable Wear 설정을 워치나 폰에서 선택하면 트리거 된다.
 
-This will trigger the **Location Permission is Required** dialog box to be displayed.  Android Wear requires **Location Access** to be manually accepted by the user, therefore, the user **must** accept the Location Permission query in order for standalone mode to work.  Alternatively, the user can enable Location Permission in Watch -> Settings -> Permissions - XDrip Prefs, then enable Location.
+이것은 **Location Permission is REquired** 다이얼로그를 디스플리에 되도록 트리거 한다.
+안드로이드 웨어는 **Location Access** 를 사용자에 의해서 수동적으로 엑셉트 하도록 요구한다. 그러므로 사용자는 **반드시** 로케이션 퍼미션 쿼리를 스탠드 얼론 모드에서 수행될 수 있도록 하기 위해서
+엑셉트 해야한다.
+그렇지 않으면 사용자는 로케이션 허용을 Watch -> Settings -> Permissions -XDrip Prefs 에서 로케이션을 활성화 하도록 할 수 있따.
 
 <img align="middle" src="./images/prefs-wear-permissions.png" title="xDrip+ Wear Integration Preferences">
 
-### Syncing Phone and Wear Preferences
-Note, xDrip+ and Wear will sync their co-existing preferences.  Preference syncing takes the following precedence on connection:
+### 폰과 웨어 동기화 설정
+노트, XDrip+ 와 웨어는 그들이 둘다 존재하는 설정을 동기화 한다. 설정 동기화는 커넥션 상에서 다음과 같이 할 수 있다.
 
-  1. xDrip+ app startup.  xDrip+ will send its preferences to the watch and the watch will update its values to the phone.
-  2. On re-connect, the wear app will send its preferences to the phone and phone will update its values to the watch.
+  1. xDrip+ 앱이 시작된다. xDrip+ 는 설정을 워치로 보내고 워치는 해당 값을 폰으로 업데이트 할 것이다.
+  2. 재 연결에서 웨어 앱은 자신의 설정을 폰에 전송하고 폰은 값을 워치에 업데이트 한다.
 
-For example, if the user changes the Force Wear preference on the watch, it will immediately be sent to the phone upon re-connection, and the phone will update its settings.
+예를 들어 만약 당신이 Force Wear 설정을 워치에서 변경했다면 이것은 즉시 폰으로 다시 연결하도록 전송한다. 그리고 폰은 세팅을 업데이트 할 것이다.
 
 ### Syncing BGs and Wear Database
 * Sync DB - The watch data (BGs, Logs)are saved in the watch database.  The watch will attempt to sync its data with the phone upon connection until all delta data have been synced. So, for example, if you have 8 hours of overnight data generated while disconnected from the phone, the watch will attempt to send all data upon re-connection with the phone.
